@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,9 +22,11 @@ namespace backend
             services.AddOpenApiDocument();
 
             services.AddCors(options => {
-                var frontend = Configuration.GetServiceUri("frontend");
+                // var frontend = Configuration.GetServiceUri("frontend");
+                // Console.WriteLine("frontend:"+frontend);
                 options.AddPolicy("CorsPolicy", policy => {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins(frontend.ToString());
+                //    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins(frontend.ToString());
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:6380");
                 });
             });
 

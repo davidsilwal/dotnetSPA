@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { WeatherForecastClient, IWeatherForecast } from "./weatherforecast.client";
+import { WeatherForecastClient, IWeatherForecast } from './weatherforecast.client';
 
 @Component({
   selector: 'app-root',

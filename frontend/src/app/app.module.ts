@@ -6,7 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { WeatherForecastClient } from './weatherforecast.client';
+import { WeatherForecastClient, API_BASE_URL } from './weatherforecast.client';
+
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,11 @@ import { WeatherForecastClient } from './weatherforecast.client';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [WeatherForecastClient],
+  providers: [ {
+    provide: API_BASE_URL,
+    useValue: environment.apiUrl
+},
+WeatherForecastClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
