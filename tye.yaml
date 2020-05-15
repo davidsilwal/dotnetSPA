@@ -13,7 +13,9 @@ services:
 - name: backend
   project: backend/backend.csproj
   bindings:
-    - port: 5001    
+    - port: 5001   
+      protocol: http
+
   # env:
   #   - name: ASPNETCORE_URLS
   #     value: http://localhost:5001

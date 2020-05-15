@@ -22,11 +22,11 @@ namespace backend
             services.AddOpenApiDocument();
 
             services.AddCors(options => {
-                // var frontend = Configuration.GetServiceUri("frontend");
-                // Console.WriteLine("frontend:"+frontend);
+                var frontend = Configuration.GetServiceUri("frontend");
+                Console.WriteLine("frontend:"+frontend);
                 options.AddPolicy("CorsPolicy", policy => {
-                //    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins(frontend.ToString());
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:6380");
+                   policy.AllowAnyHeader().AllowAnyMethod().WithOrigins(frontend.ToString());
+                    // policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:6380");
                 });
             });
 
@@ -40,8 +40,6 @@ namespace backend
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
